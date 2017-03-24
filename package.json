@@ -9,9 +9,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "browser-sync": "^2.18.8",
     "grunt": "^1.0.1",
     "grunt-contrib-connect": "^1.0.2",
     "grunt-contrib-watch": "^1.0.0",
+    "gulp": "^3.9.1",
     "load-grunt-tasks": "^3.5.2"
   }
 }

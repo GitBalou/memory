@@ -1,23 +1,14 @@
-const gulp = require('gulp');
-const connect = require('gulp-connect');
+var gulp = require('gulp');
+var browserSync = require('browser-sync');
+var reload = browserSync.reload;
 
+// watch files for changes and reload
+gulp.task('serve', function() {
+    browserSync({
+        server: {
+            baseDir: 'www'
+        }
+    });
 
-gulp.task('connect', connect.server({
-	root: ['dev'],
-	port: 1337,
-	livereload: true,
-	/*open: {
-		browser: 'firefox'
-	}*/
-}));
-
-gulp.task('html', function () {
-	return gulp.src('./www/*.html')
-	.pipe(connect.reload());
+    gulp.watch(['*.html', 'styles/**/*.css', 'scripts/**/*.js'], {cwd: 'www'}, reload);
 });
-
-gulp.task('watch', function () {
-	gulp.watch('./www/*.html', ['html']);
-});
-
-gulp.task('default', ['connect', 'watch']);
